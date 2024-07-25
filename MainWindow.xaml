@@ -21,11 +21,14 @@
         </Grid.ColumnDefinitions>
         <WrapPanel Grid.Row="1" Grid.Column="1" Margin="0, 15, 0, 15">
             <TextBlock Text="Filter by:" Margin="10, 0, 10, 0" ></TextBlock>
-            <ComboBox Name="ComboBoxFilterCategory" Width="120" SelectedItem="Role in company" Margin="10, 0, 10, 0"></ComboBox>
+            <ComboBox Name="ComboBoxFilterCategory" Width="120" SelectionChanged="FilterBy_SelectionChanged" SelectedItem="Role in company" Margin="10, 0, 10, 0"></ComboBox>
             <TextBlock Text="Select option" Margin="10, 0, 10, 0"></TextBlock>
-            <ComboBox SelectionChanged="ComboBox_SelectionChanged" Name="ComboBoxFilterOptions" Width="120" SelectedItem="SelectedItemClick"  Margin="10, 0, 10, 0"></ComboBox>
+            <ComboBox SelectionChanged="ComboBox_SelectionChanged" Name="ComboBoxFilterOptions"  Width="120" SelectedItem="SelectedItemClick"  Margin="10, 0, 10, 0"></ComboBox>
         </WrapPanel>
-        <DataGrid   Name="CandidateDataGrid" Grid.Row="2"  Grid.Column="1" ></DataGrid>
-        <Button Name="AddButton" Grid.Row="3" Grid.Column="1" Width="80"  Margin="10, 13, 10, 13" Click="Button_Click">Add</Button>
+        <DataGrid Name="CandidateDataGrid" ItemsSource="{Binding ListOfDisplayEmployees}" Grid.Row="2"  Grid.Column="1" ></DataGrid>
+        <WrapPanel Grid.Row="3" Grid.Column="1">
+            <Button Name="AddButton"   Width="90"  Margin="10, 13, 10, 13" Click="Button_Click">Add Employee</Button>
+            <Button Name="DisplayButton"   Width="130"  Margin="10, 13, 10, 13" Click="DisplayButton_Click">Information Candidates</Button>
+        </WrapPanel>
     </Grid>
 </Window>
