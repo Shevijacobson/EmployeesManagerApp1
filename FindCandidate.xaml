@@ -20,8 +20,17 @@
         </Grid.ColumnDefinitions>
         <WrapPanel Grid.Row="1" Grid.Column="1">
             <TextBlock Margin="13">Choose candidate:</TextBlock>
-            <ComboBox ItemsSource="{Binding ListOfCandidate.Name}" Name="ComboboxChooseCandidate" Margin="13" Width="200"></ComboBox>
+            <ComboBox SelectionChanged="FilterByselectedInterviewer" ItemsSource="{Binding ListOfCandidate}"  Name="ComboboxChooseCandidate" Margin="13" SelectedItem="FilterByselected" Width="200">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding FirstName}" Margin="0,0,5,0" />
+                            <TextBlock Text="{Binding LastName}" Margin="0,0,5,0" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </WrapPanel>
-        <DataGrid Name="DataGridInterviews" Grid.Row="2" Grid.Column="1"/>
+        <DataGrid Name="DataGridInterviews"  Grid.Row="2" Grid.Column="1"/>
     </Grid>
 </Window>
